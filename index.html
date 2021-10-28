@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HD Cinema</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2? family = Roboto & display = swap" rel="stylesheet" />
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 1100px;
+    margin: auto;
+    background-color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+#anima{
+            height: 34px;
+            background: #292929;
+        }
+#anima .running-text{
+            height: 100%;
+            width: 100%;
+            float: left;
+            overflow: hidden;
+        }
+#anima .running-text>ul{
+            width: 100%;
+            height: 100%;
+            animation:  runningtext linear 40s infinite;
+            position: relative;
+            white-space: nowrap;
+            line-height: 36px;
+            
+        }
+#anima .running-text>ul:hover{
+            animation-play-state: paused;
+        }
+        @keyframes runningtext{
+            0%{left: 100%;}
+            100%{left: -4800px;}
+        }
+#anima .running-text>ul>li{
+            display: inline-block;
+            font-weight: bold;
+            margin-left: 15px;
+            
+        }
+#anima .running-text>ul>li::before{
+            content: "<< ";
+            color: var(--maincolor);
+        }
+#anima .running-text>ul>li>a{
+            color: red;
+            text-decoration: none;
+        }
+#anima .running-text>ul>li>a:hover{
+            color: yellow;
+        }
+.container-header{
+    display: flex;
+    justify-content: flex-start;
+     background-color: black;
+    align-items: center;
+    position: relative;
+    border-bottom: 2px solid yellow;
+} 
+.logo img{
+    width: 250px;
+    height: 70px;
+} 
+.container-header .search{
+            float:left;
+            width: 300px;
+            height: 30px;
+            background: gray;
+            margin-top: 4px;
+            border-radius: 12.5px;
+            margin-left: 80px;
+        }
+.container-header .search input{
+            background: none;
+            margin-left: 8px;
+            margin-top: 7px;
+            color: white;
+            font-weight:bold ;
+            border: none;
+            width: 90%;
+        }
+.container-header .search button{
+    background-color: gray;
+    border: none;
+}
+.container-header .search input:focus{
+            outline: none;
+        }
+.menu {
+    width: 1100px;
+    margin:auto;
+}
+.menu ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(56, 55, 56);
+}
+.menu ul li {
+    position: relative;
+    font-size: 16px;
+    text-transform: uppercase;
+    line-height: 35px;
+    font-weight: 600 ;
+    color: white;
+}
+.menu ul li:hover{
+    color: yellow;
+}
+.menu ul li:hover>a{
+    color: yellow;
+}
+.menu ul li>a{
+    color: white;
+    text-decoration: none;
+}
+.menu ul li .sub-menu{
+        display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.sub-menu li {
+    width: 200px;
+}
+.menu ul li:hover .sub-menu{
+    display: flex;
+    width: 600px;
+     justify-content: space-around;
+     flex-wrap: wrap;   
+     opacity: 0.9;
+}
+#maincontent{
+    height: 890px;
+    width: 100%;
+    margin: 10px 0;
+}
+#maincontent .maincontent-left{
+    width: 803px;
+    height: 100%;
+    background-color: #292929;
+    float: left;
+}
+#maincontent .maincontent-left>h2{
+    color:white;
+    padding: 5px 0;
+    border-bottom: 0.2px solid lavender;
+}
+#maincontent .maincontent-left>div{
+    width:182px;
+    height: 400px;
+    float: left;
+    margin: 15px 0 0px 15px;
+}
+#maincontent .maincontent-left>div .maincontent-left-top{
+    width: 100%;
+    height: 270px;
+}
+#maincontent .maincontent-left>div>.maincontent-left-top>img{
+    width: 100%;
+    height: 100%;
+}
+#maincontent .maincontent-left>div>.maincontent-left-bottom>ul{
+    margin-top: 5px;
+}
+#maincontent .maincontent-left>div>.maincontent-left-bottom>ul>li{
+    margin-bottom: 4px;
+    list-style: none;
+    color: #CCCCAD;
+}
+#maincontent .maincontent-left>div>.maincontent-left-bottom>ul>li>a{
+    text-decoration: none;
+    color: #CCCCAD;
+}
+#maincontent .maincontent-left>div>.maincontent-left-bottom>ul>li>a:hover{
+    color: white;
+}
+#maincontent .maincontent-left>div>.maincontent-left-bottom>ul>li>a>span{
+    color: white;
+    font-weight: bold;
+}
+#maincontent .maincontent-left>div>.maincontent-left-bottom>ul>li>span{
+    color: white;
+    font-weight: bold;
+}
+#maincontent .maincontent-right{
+    width: 280px;
+    height: 100%;
+    background-color: #292929;
+    float: right;
+    overflow: scroll;
+    padding: 7px;
+}
+#maincontent .maincontent-right>h3{
+    color: white;
+    font-weight: white;
+    margin-bottom: 5px;
+}
+#maincontent .maincontent-right>div{
+    width: 100%;
+    height: 152px;
+    float: left;
+    margin: 5px 0;
+}
+#maincontent .maincontent-right>div>img{
+    width: 120px;
+    height: 100%;
+}
+#maincontent .maincontent-right>div>ul{
+    float:right;
+    font-size: 1rem;
+    max-width: 100px;
+    margin-top: 20px;
+}
+#maincontent .maincontent-right>div>ul>li{
+    list-style: none;
+    color: white;
+    margin-bottom: 6px;
+}
+#maincontent .maincontent-right>div>ul>li>a{
+    text-decoration: none;
+    color: white;
+}
+#footer{
+            height: 220px;
+            background-color: rgb(56, 55, 56);
+        }
+        #footer div{
+            height: 100%;
+            width: 33.33%;
+            float: left;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            padding: 40px 10px;
+            padding-left: 65px;
+        }
+        #footer div>ul{
+            text-transform: none;
+            font-weight: normal;
+            font-size: 1.1rem;
+            margin: 15px 20px 15px 0;
+        }
+        #footer div>ul>li{
+            margin: 11px 0;
+            list-style: none;
+            text-align: justify;
+        }
+        #footer div>ul>li>span{
+            margin-right: 5px;
+        }
+        #footer div>ul>input{
+            width: 90%;
+            height: 40px;
+            background-color: var(--maincolor);
+            border: none;
+            padding: 10px;
+            border-bottom: 1px solid white;
+            margin-top: 20px;
+        }
+        #footer div>ul>input:focus{
+            outline: none;
+        }
+        .lienhe>ul>li> .fa{
+            padding: 10px;
+            font-size: 20px;
+            width: 40px;
+            text-decoration: none;
+            text-align: center;
+            margin: 5px -5px;
+            border: none;
+            border-radius: 50%;
+            color: white;
+        }
+        .lienhe>ul>li> .fa:hover{
+            background: rgba(241, 5, 5, 0.5);
+            border: none;
+        }
+</style>
+<body>
+    <div id="anima">
+        <div class="running-text">
+            <ul>
+                <li><a href="">Thông tin phim bộ hay và nổi bật nhất tháng 12</a></li>
+                <li><a href="">Thông tin phim mới nhất và nhiều người xem nhất năm 2021</a></li>
+                <li><a href="">100 bộ phim hay nhất và đáng xem nhất của quốc gia Hàn Quốc năm 2021(thể loại tình cảm)</a></li>
+                <li><a href="">Những bộ phim Nhật Bản hay nhất mọi thời đại mà ai cũng nên xem ít nhất một lần</a></li>
+                <li><a href="">25 bộ phim Mỹ thể loại phiêu lưu sắp ra mắt khán giả vào tháng 12 năm 2021(đang được đón chờ)</a></li>
+                <li><a href="">Tuyển chọn 5 nhân vật nổi tiếng nhất thế giới có trong bộ phim Việt Nam ngày 5 tháng 10 năm 2021</a></li>
+                <li><a href="">Vừa học vừa chơi với 50 bộ phim tuổi học trò. Hãy một lần trở về tuổi thơ thôi nào!</a></li>
+                <li><a href="">Không thể bỏ lỡ 5 bộ phim đáng xem nhất trong đại dịch covid 19</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-header">
+            <div class="logo">
+                <img src="trinhiudau.gif"/>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="Tìm kiếm">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+    </div>
+        <div class="menu">
+                <ul>
+                    <li>
+                        <a href="">Trang chủ</a>
+                    </li>
+                    <li>
+                        Thể loại
+                        <ul class="sub-menu">
+                            <li><a href="">Tình cảm</a></li>
+                            <li><a href="">Trinh thám</a></li>
+                            <li><a href="">Kinh dị</a></li>
+                            <li><a href="">Gia đình</a></li>
+                            <li><a href="">Hành động</a></li>
+                            <li><a href="">Học đường</a></li>
+                            <li><a href="">Châu á</a></li>
+                            <li><a href="">Châu Mỹ</a></li>
+                            <li><a href="">Châu Âu</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        Quốc Gia
+                        <ul class="sub-menu">
+                            <li><a href="">Việt Nam</a></li>
+                            <li><a href="">Hàn Quốc</a></li>
+                            <li><a href="">Nhật Bản</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">Phim lẻ</a>
+                    </li>
+                    <li>
+                        <a href="">Phim bộ</a>
+                    </li>
+                    <li>
+                        <a href="">Phim thuyết minh</a>
+                    </li>
+                    <li>
+                        <a href="">Phim chiếu rạp</a>
+                    </li>
+                    <li>
+                        <a href="">Trailer</a>
+                    </li>
+                    <li>
+                        <a href="pageTinTucc.html">Tin tức</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div id="maincontent">
+                <div class="maincontent-left">
+                    <h2>Phim hành động nhiều người xem nhất</h2>
+                    <div>
+                        <div class="maincontent-left-top">
+                           <img src="shangchi.jpg" alt="">
+                        </div>
+                        <div class="maincontent-left-bottom">
+                            <ul>
+                                <li><a href=""><span>Tên:</span> Shang-Chi</a></li>
+                                <li><span>Thể loại:</span> HÀNH ĐỘNG</li>
+                                <li><span>Quốc gia:</span> Mỹ</li>
+                                <li><span>Năm phát hành:</span> 2021</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="maincontent-left-top">
+                           <img src="endgame.jpg" alt="">
+                        </div>
+                        <div class="maincontent-left-bottom">
+                            <ul>
+                                <li><a href=""><span>Tên:</span> Endgame</a></li>
+                                <li><span>Thể loại:</span> HÀNH ĐỘNG</li>
+                                <li><span>Quốc gia:</span> Mỹ</li>
+                                <li><span>Năm phát hành:</span> 2017</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="maincontent-left-top">
+                           <img src="blackwidow.jpg" alt="">
+                        </div>
+                        <div class="maincontent-left-bottom">
+                            <ul>
+                                <li><a href=""><span>Tên:</span> Black Widow</a></li>
+                                <li><span>Thể loại:</span> HÀNH ĐỘNG</li>
+                                <li><span>Quốc gia:</span> Mỹ</li>
+                                <li><span>Năm phát hành:</span> 2019</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="maincontent-left-top">
+                           <img src="antman.jpg" alt="">
+                        </div>
+                        <div class="maincontent-left-bottom">
+                            <ul>
+                                <li><a href=""><span>Tên:</span> Ant Man</a></li>
+                                <li><span>Thể loại:</span> HÀNH ĐỘNG</li>
+                                <li><span>Quốc gia:</span> Mỹ</li>
+                                <li><span>Năm phát hành:</span> 2017</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="maincontent-left-top">
+                           <img src="deadpool.jpg" alt="">
+                        </div>
+                        <div class="maincontent-left-bottom">
+                            <ul>
+                                <li><a href=""><span>Tên:</span> Dead Pool</a></li>
+                                <li><span>Thể loại:</span> HÀNH ĐỘNG</li>
+                                <li><span>Quốc gia:</span> Mỹ</li>
+                                <li><span>Năm phát hành:</span> 2015</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="maincontent-left-top">
+                           <img src="blackpanther.jpg" alt="">
+                        </div>
+                        <div class="maincontent-left-bottom">
+                            <ul>
+                                <li><a href=""><span>Tên:</span>Black Panther</a></li>
+                                <li><span>Thể loại:</span> HÀNH ĐỘNG</li>
+                                <li><span>Quốc gia:</span> Mỹ</li>
+                                <li><span>Năm phát hành:</span> 2017</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="maincontent-left-top">
+                           <img src="thor.jpg" alt="">
+                        </div>
+                        <div class="maincontent-left-bottom">
+                            <ul>
+                                <li><a href=""><span>Tên:</span> Thor</a></li>
+                                <li><span>Thể loại:</span> HÀNH ĐỘNG</li>
+                                <li><span>Quốc gia:</span> Mỹ</li>
+                                <li><span>Năm phát hành:</span> 2017</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="maincontent-left-top">
+                           <img src="parker.jpg" alt="">
+                        </div>
+                        <div class="maincontent-left-bottom">
+                            <ul>
+                                <li><a href=""><span>Tên:</span> Parker</a></li>
+                                <li><span>Thể loại:</span> HÀNH ĐỘNG</li>
+                                <li><span>Quốc gia:</span> Mỹ</li>
+                                <li><span>Năm phát hành:</span> 2019</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="maincontent-right">
+                    <h3>Phim nổi bật</h3>
+                    <div>
+                        <img src="haiphuong.jpg" alt="">
+                        <ul>
+                            <li><a href=""> Hai Phượng</a></li>
+                            <li>Thể loại: Tình cảm, Hành động</li>
+                            <li>Quốc gia: Việt Nam</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="chiem.jpg" alt="">
+                        <ul>
+                            <li><a href="">Chị chị em em</a></li>
+                            <li>Thể loại: Phim tình cảm, đời sống</li>
+                            <li>Quốc gia: Việt Nam</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="trangti.jpg" alt="">
+                        <ul>
+                            <li><a href="">Trạng tý</a></li>
+                            <li>Thể loại: Phim vui nhộn, tình cảm</li>
+                            <li>Quốc gia: Việt Nam</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="cauvang.jpg" alt="">
+                        <ul>
+                            <li><a href="">Cậu vàng</a></li>
+                            <li>Thể loại: Phim Việt Nam thời xưa</li>
+                            <li>Quốc gia: Việt Nam</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="mevangnha.jpg" alt="">
+                        <ul>
+                            <li><a href="">Mẹ vắng nhà</a></li>
+                            <li>Thể loại: Phim Việt Nam thời xưa</li>
+                            <li>Quốc gia: Việt Nam</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+        <div class="gioithieu">giới thiệu
+            <ul>
+                <li>Xem phim hay miễn phí chất lượng cao với phụ đề tiếng việt - thuyết minh - lồng tiếng. Mọt phim có nhiều thể loại phim phong phú, đặc sắc, nhiều bộ phim hay nhất - mới nhất.</li>
+                
+            </ul>
+        </div>
+        <div class="nhantin">đăng ký nhận tin
+            <ul>
+                <li>Hãy nhập email của mình vào đây để nhận thông báo mới nhất của chúng tôi!</li>
+                <input type="text" placeholder="Nhập email của bạn">
+                <a href=""><span class="glyphicon glyphicon-send"></span></a>
+            </ul>
+        </div>
+        <div class="lienhe">Liên hệ
+            <ul>
+                <li>
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-google"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                </li>
+                <img src="https://cayxinh.vn/wp-content/uploads/2019/05/20150827110756-cay-xinh-dathongbao-e1611808211540.png" alt="">
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
